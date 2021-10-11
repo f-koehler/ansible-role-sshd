@@ -1,0 +1,30 @@
+ssh_protocol: 2
+ssh_port: 22
+ssh_listen_addresses:
+  - "0.0.0.0"
+  - "::"
+ssh_extra_listen_addresses: []
+ssh_permit_root_login: false
+ssh_public_key_authentication: true
+ssh_authorized_keys_file: ".ssh/authorized_keys"
+ssh_password_authentication: true
+ssh_permit_empty_passwords: false
+ssh_use_pam: true
+ssh_print_motd: false
+ssh_allow_agent_forwarding: true
+ssh_allow_tcp_forwarding: true
+ssh_x11_forwarding: false
+ssh_kex_algorithms:
+  - "diffie-hellman-group16-sha512"
+  - "diffie-hellman-group18-sha512"
+  - "diffie-hellman-group-exchange-sha256"
+  - "curve25519-sha256"
+  - "curve25519-sha256@libssh.org"
+ssh_host_key_algorithms:
+  - rsa-sha2-256
+  - rsa-sha2-512
+  - ssh-ed25519
+ssh_macs:
+  - umac-128-etm@openssh.com
+  - hmac-sha2-256-etm@openssh.com
+  - hmac-sha2-512-etm@openssh.com

@@ -1,0 +1,44 @@
+# vim: set ft=sshconfig
+
+# Basic Settings
+
+Protocol {{ ssh_protocol }}
+Port {{ ssh_port }}
+{% for address in ssh_listen_addresses + ssh_extra_listen_addresses %}
+ListenAddress {{ address }}
+{% endfor %}
+
+# Authentication
+
+PermitRootLogin {{ "yes" if ssh_permit_root_login "no" }}
+
+## Public Key
+
+PubkeyAuthentication {{ "yes" if ssh_public_key_authentication else "no" }}
+AuthorizedKeysFile {{ ssh_authorized_keys_file }}
+
+## Password
+
+PasswordAuthentication {{ "yes" if ssh_password_authentication else "no" }}
+PermitEmptyPasswords {{ "yes" if ssh_permit_empty_passwords else "no" }}
+
+## Kerberos
+
+### TODO
+
+## PAM
+
+UsePAM {{ "yes" if ssh_use_pam else "no" }}
+PrintMotd {{ "yes" if ssh_print_motd else "no" }}
+
+# Forwarding
+
+AllowAgentForwarding {{ "yes" if ssh_allow_agent_forwarding else "no" }}
+AllowTcpForwarding {{ "yes" if ssh_allow_tcp_forwarding else "no" }}
+X11Forwarding {{ "yes" if ssh_allow_x11_forwarding else "no" }}
+
+# Ciphers
+
+KexAlgorithms {{ ssh_kex_algorithms | join(",") }}
+HostKeyAlgorithms {{ ssh_host_key_algorithms | join(",") }}
+MACs {{ ssh_macs | join(",") }}

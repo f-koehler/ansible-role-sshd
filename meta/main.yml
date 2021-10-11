@@ -1,0 +1,32 @@
+galaxy_info:
+  role_name: sshd
+  author: f_koehler
+  description: Install and start the OpenSSH Server with sane defaults
+  license: license (MIT)
+  min_ansible_version: 2.5
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+        - bullseye
+    - name: EL
+      versions:
+        - 8
+    - name: Fedora
+      versions:
+        - 33
+        - 34
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+  galaxy_tags:
+    - system
+    - server
+    - ssh
+    - openssh
+dependencies: []
