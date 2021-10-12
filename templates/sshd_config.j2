@@ -35,7 +35,7 @@ PrintMotd {{ "yes" if ssh_print_motd else "no" }}
 
 AllowAgentForwarding {{ "yes" if ssh_allow_agent_forwarding else "no" }}
 AllowTcpForwarding {{ "yes" if ssh_allow_tcp_forwarding else "no" }}
-X11Forwarding {{ "yes" if ssh_allow_x11_forwarding else "no" }}
+X11Forwarding {{ "yes" if ssh_x11_forwarding else "no" }}
 
 # Ciphers
 
