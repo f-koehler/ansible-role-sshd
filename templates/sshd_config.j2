@@ -10,7 +10,7 @@ ListenAddress {{ address }}
 
 # Authentication
 
-PermitRootLogin {{ "yes" if ssh_permit_root_login "no" }}
+PermitRootLogin {{ "yes" if ssh_permit_root_login else "no" }}
 
 ## Public Key
 
