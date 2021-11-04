@@ -42,3 +42,8 @@ X11Forwarding {{ "yes" if ssh_x11_forwarding else "no" }}
 KexAlgorithms {{ ssh_kex_algorithms | join(",") }}
 HostKeyAlgorithms {{ ssh_host_key_algorithms | join(",") }}
 MACs {{ ssh_macs | join(",") }}
+
+# Subsystems
+{% if ssh_sftp_enabled %}
+Subsystem sftp {{ ssh_sftp_server }}
+{% endif %}
